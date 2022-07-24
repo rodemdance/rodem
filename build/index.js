@@ -12,12 +12,12 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_f4238284 from 'nuxt_plugin_plugin_f4238284' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_plugin_54ebb414 from 'nuxt_plugin_plugin_54ebb414' // Source: .\\vuetify\\plugin.js (mode: 'all')
-import nuxt_plugin_workbox_03e760bd from 'nuxt_plugin_workbox_03e760bd' // Source: .\\workbox.js (mode: 'client')
-import nuxt_plugin_metaplugin_4c0f6f86 from 'nuxt_plugin_metaplugin_4c0f6f86' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_42c0249e from 'nuxt_plugin_iconplugin_42c0249e' // Source: .\\pwa\\icon.plugin.js (mode: 'all')
-import nuxt_plugin_axios_3f21403e from 'nuxt_plugin_axios_3f21403e' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_plugin_2cbea60d from 'nuxt_plugin_plugin_2cbea60d' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_plugin_42489907 from 'nuxt_plugin_plugin_42489907' // Source: .\\vuetify\\plugin.js (mode: 'all')
+import nuxt_plugin_workbox_bb7a6268 from 'nuxt_plugin_workbox_bb7a6268' // Source: .\\workbox.js (mode: 'client')
+import nuxt_plugin_metaplugin_0508374c from 'nuxt_plugin_metaplugin_0508374c' // Source: .\\pwa\\meta.plugin.js (mode: 'all')
+import nuxt_plugin_iconplugin_09afdcc0 from 'nuxt_plugin_iconplugin_09afdcc0' // Source: .\\pwa\\icon.plugin.js (mode: 'all')
+import nuxt_plugin_axios_d8c5f4a0 from 'nuxt_plugin_axios_d8c5f4a0' // Source: .\\axios.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -67,7 +67,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"%s","title":"Танцювальний клуб Родем (Ужгород)","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Родем - танцювальна школа для людей будь-якого віку і рівнів підготовки. Тут кожного вчать техніці, емоціям та цьому прекрасному мистетству - МИСТЕТСТВУ ТАНЦЮ!"},{"name":"format-detection","content":"telephone=no"},{"name":"msapplication-TileColor","content":"#ffffff"},{"name":"msapplication-TileImage","content":"\u002Fms-icon-144x144.png"},{"name":"theme-color","content":"#ffffff"},{"hid":"charset","charset":"utf-8"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"Rodem"},{"hid":"og:type","name":"og:type","property":"og:type","content":"website"},{"hid":"og:title","name":"og:title","property":"og:title","content":"Rodem"},{"hid":"og:site_name","name":"og:site_name","property":"og:site_name","content":"Rodem"}],"link":[{"rel":"apple-touch-icon","sizes":"57x57","href":"\u002Fapple-icon-57x57.png"},{"rel":"apple-touch-icon","sizes":"60x60","href":"\u002Fapple-icon-60x60.png"},{"rel":"apple-touch-icon","sizes":"72x72","href":"\u002Fapple-icon-72x72.png"},{"rel":"apple-touch-icon","sizes":"76x76","href":"\u002Fapple-icon-76x76.png"},{"rel":"apple-touch-icon","sizes":"114x114","href":"\u002Fapple-icon-114x114.png"},{"rel":"apple-touch-icon","sizes":"120x120","href":"\u002Fapple-icon-120x120.png"},{"rel":"apple-touch-icon","sizes":"144x144","href":"\u002Fapple-icon-144x144.png"},{"rel":"apple-touch-icon","sizes":"152x152","href":"\u002Fapple-icon-152x152.png"},{"rel":"apple-touch-icon","sizes":"180x180","href":"\u002Fapple-icon-180x180.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"192x192","href":"\u002Fandroid-icon-192x192.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"32x32","href":"\u002Ffavicon-32x32.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"96x96","href":"\u002Ffavicon-96x96.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"16x16","href":"\u002Ffavicon-16x16.png"},{"rel":"manifest","href":"\u002Fmanifest.json"},{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Lobster"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Philosopher"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fleaflet@1.8.0\u002Fdist\u002Fleaflet.css"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fleaflet-gesture-handling\u002Fdist\u002Fleaflet-gesture-handling.min.css"},{"hid":"shortcut-icon","rel":"shortcut icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_64x64.e3e9fb.png"},{"hid":"apple-touch-icon","rel":"apple-touch-icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_512x512.e3e9fb.png","sizes":"512x512"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.5e0d8b81.json","hid":"manifest"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"script":[{"src":"https:\u002F\u002Funpkg.com\u002Fleaflet@1.8.0\u002Fdist\u002Fleaflet.js"},{"src":"https:\u002F\u002Funpkg.com\u002Fleaflet-gesture-handling  "}],"style":[],"htmlAttrs":{"lang":"uk"}},
+    head: {"titleTemplate":"%s","title":"Танцювальний клуб Родем (Ужгород)","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Родем - танцювальна школа для людей будь-якого віку і рівнів підготовки. Тут кожного вчать техніці, емоціям та цьому прекрасному мистетству - МИСТЕТСТВУ ТАНЦЮ!"},{"name":"format-detection","content":"telephone=no"},{"name":"msapplication-TileColor","content":"#ffffff"},{"name":"msapplication-TileImage","content":"\u002Fms-icon-144x144.png"},{"name":"theme-color","content":"#ffffff"}],"link":[{"rel":"apple-touch-icon","sizes":"57x57","href":"\u002Fapple-icon-57x57.png"},{"rel":"apple-touch-icon","sizes":"60x60","href":"\u002Fapple-icon-60x60.png"},{"rel":"apple-touch-icon","sizes":"72x72","href":"\u002Fapple-icon-72x72.png"},{"rel":"apple-touch-icon","sizes":"76x76","href":"\u002Fapple-icon-76x76.png"},{"rel":"apple-touch-icon","sizes":"114x114","href":"\u002Fapple-icon-114x114.png"},{"rel":"apple-touch-icon","sizes":"120x120","href":"\u002Fapple-icon-120x120.png"},{"rel":"apple-touch-icon","sizes":"144x144","href":"\u002Fapple-icon-144x144.png"},{"rel":"apple-touch-icon","sizes":"152x152","href":"\u002Fapple-icon-152x152.png"},{"rel":"apple-touch-icon","sizes":"180x180","href":"\u002Fapple-icon-180x180.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"192x192","href":"\u002Fandroid-icon-192x192.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"32x32","href":"\u002Ffavicon-32x32.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"96x96","href":"\u002Ffavicon-96x96.png"},{"rel":"icon","type":"image\u002Fpng","sizes":"16x16","href":"\u002Ffavicon-16x16.png"},{"rel":"manifest","href":"\u002Fmanifest.json"},{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Lobster"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Philosopher"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fleaflet@1.8.0\u002Fdist\u002Fleaflet.css"},{"rel":"stylesheet","href":"https:\u002F\u002Funpkg.com\u002Fleaflet-gesture-handling\u002Fdist\u002Fleaflet-gesture-handling.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"}],"script":[{"src":"https:\u002F\u002Funpkg.com\u002Fleaflet@1.8.0\u002Fdist\u002Fleaflet.js"},{"src":"https:\u002F\u002Funpkg.com\u002Fleaflet-gesture-handling  "}],"style":[]},
 
     router,
     nuxt: {
@@ -181,28 +181,28 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_f4238284 === 'function') {
-    await nuxt_plugin_plugin_f4238284(app.context, inject)
+  if (typeof nuxt_plugin_plugin_2cbea60d === 'function') {
+    await nuxt_plugin_plugin_2cbea60d(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_54ebb414 === 'function') {
-    await nuxt_plugin_plugin_54ebb414(app.context, inject)
+  if (typeof nuxt_plugin_plugin_42489907 === 'function') {
+    await nuxt_plugin_plugin_42489907(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_workbox_03e760bd === 'function') {
-    await nuxt_plugin_workbox_03e760bd(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_bb7a6268 === 'function') {
+    await nuxt_plugin_workbox_bb7a6268(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_metaplugin_4c0f6f86 === 'function') {
-    await nuxt_plugin_metaplugin_4c0f6f86(app.context, inject)
+  if (typeof nuxt_plugin_metaplugin_0508374c === 'function') {
+    await nuxt_plugin_metaplugin_0508374c(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_iconplugin_42c0249e === 'function') {
-    await nuxt_plugin_iconplugin_42c0249e(app.context, inject)
+  if (typeof nuxt_plugin_iconplugin_09afdcc0 === 'function') {
+    await nuxt_plugin_iconplugin_09afdcc0(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_3f21403e === 'function') {
-    await nuxt_plugin_axios_3f21403e(app.context, inject)
+  if (typeof nuxt_plugin_axios_d8c5f4a0 === 'function') {
+    await nuxt_plugin_axios_d8c5f4a0(app.context, inject)
   }
 
   // Lock enablePreview in context
