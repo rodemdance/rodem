@@ -9,7 +9,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Rodem',
+    titleTemplate: '%s',
     title: 'Танцювальний клуб Родем (Ужгород)',
     meta: [
       { charset: 'utf-8' },
@@ -103,7 +103,7 @@ export default {
       }
     }
   },
-
+  buildDir: 'docs',
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }

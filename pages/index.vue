@@ -1,151 +1,142 @@
 <template>
-  <div>
-  <v-row justify="center" align="center">
+  <div v-resize="onResize">
+
+    <!-- Hero unit -->
+    <v-row justify="center" align="center">
       <v-img
         gradient="to top right, rgba(255,181,167,0.3), rgba(109,104,117,0.53)"
-        contains src="/images/header.jpg" style="height: 100vh; overflow: hidden; position: relative;" class="bg align-center text-center">
-        <v-img src="/rodem - white.svg" width="40%" style="margin: auto; margin-bottom: 10%; opacity:0.6;"></v-img>
-        <v-row style="z-index: 1000; position: absolute; bottom:0; width: 100%;" class="pb-8">
+        contains src="/images/header.jpg"
+        class="bg align-center text-center hero-image">
+        <v-img
+          src="/rodem - white.svg"
+          :width="$vuetify.breakpoint.smAndDown ? '80%' : '40%'"
+          class="main-logo"
+        ></v-img>
+        <v-row class="pb-8 hero-text" v-show="changeHeader">
           <v-col cols="3" offset="1">
-          <h4 class="mb-6 font-family-philosopher red--text" style="font-size: 135%;">
-            Танцювальна школа для людей будь-якого віку і рівнів підготовки.<br/>
-            Тут кожного вчать техніці, емоціям та цьому прекрасному мистецтву - <br/>
-            МИСТЕЦТВУ ТАНЦЮ!
-          </h4>
-          <v-btn color="red darken-2" class="rounded-pill" dark>Хочу навчитись!</v-btn>
+            <h4 class="mb-6 font-family-philosopher red--text fs135">
+              Танцювальна школа для людей будь-якого віку і рівнів підготовки.<br/>
+              Тут кожного вчать техніці, емоціям та цьому прекрасному мистецтву - <br/>
+              МИСТЕЦТВУ ТАНЦЮ!
+            </h4>
+            <v-btn color="red darken-2" class="rounded-pill" dark>Хочу навчитись!</v-btn>
           </v-col>
         </v-row>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: absolute; bottom: 0; left: 0; ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="position: absolute; bottom: 0; left: 0;">
           <path fill="#FFF" fill-opacity="1" d="M0,64L60,53.3C120,43,240,21,360,42.7C480,64,600,128,720,170.7C840,213,960,235,1080,218.7C1200,203,1320,149,1380,122.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
         </svg>
       </v-img>
-  </v-row>
-        <v-row style="width: 100%;" class="pb-8">
-          <v-col cols="12" >
-          <h4 class="mb-6 font-family-philosopher red--text text-center" style="font-size: 135%;">
-            Танцювальна школа для людей будь-якого віку і рівнів підготовки.<br/>
-            Тут кожного вчать техніці, емоціям та цьому прекрасному мистецтву - <br/>
-            МИСТЕЦТВУ ТАНЦЮ!
-          </h4>
-          <v-btn color="red darken-2" class="rounded-pill" dark>Хочу навчитись!</v-btn>
-          </v-col>
-        </v-row>
+    </v-row>
 
+    <!-- Main text if screen is small -->
+    <v-row class="pb-8 text-center w-100 ma-0" v-show="!changeHeader">
+      <v-col cols="12" class="text-center">
+        <h4 class="mb-6 font-family-philosopher red--text fs135">
+        Танцювальна школа для людей будь-якого віку і рівнів підготовки.<br/>
+        Тут кожного вчать техніці, емоціям та цьому прекрасному мистецтву - <br/>
+        МИСТЕЦТВУ ТАНЦЮ!
+        </h4>
+      <v-btn color="red darken-2 margin-auto" class="rounded-pill" dark>Хочу навчитись!</v-btn>
+    </v-col>
+  </v-row>
+
+  <!-- About -->
   <v-row class="text-center pt-12 pb-12" justify="center">
     <v-col cols="9">
       <h1 class="red--text text--darken-1 font-family-lobster mb-8">Про клуб</h1>
-      <hr class="hr-text" data-content="AND">
-      <p class="font-family-philosopher mb-12" style="font-size: 120%;">Якщо вам періодично спадає на думку де можна записатися на танці в Ужгороді то ви звернулися за вірною адресою. Приєднуйтеся до нашої школи танців і отримаєте відпочинок від домашніх турбот та робочої рутини. Ви станете центром уваги будь-якої вечірки, затребуваним партнером для танців. Отримайте масу приємних емоцій. Створіть собі красиве тіло.</p>
-      <p class="font-family-philosopher font-weight-bold" style="font-size: 120%;">Родем - це танці для дорослих та дітей, зручний зал в центрі Ужгорода, завжди приємна та привітна атмосфера.</p>
+      <p class="font-family-philosopher mb-12 fs120">Якщо вам періодично спадає на думку де можна записатися на танці в Ужгороді то ви звернулися за вірною адресою. Приєднуйтеся до нашої школи танців і отримаєте відпочинок від домашніх турбот та робочої рутини. Ви станете центром уваги будь-якої вечірки, затребуваним партнером для танців. Отримайте масу приємних емоцій. Створіть собі красиве тіло.</p>
+      <p class="font-family-philosopher font-weight-bold fs120">Родем - це танці для дорослих та дітей, зручний зал в центрі Ужгорода, завжди приємна та привітна атмосфера.</p>
     </v-col>
   </v-row>
-  <v-row  style="background: #F8EDEB;">
-      <v-img
-        gradient="to top right, rgba(248, 237, 235,0.95), rgba(248, 237, 235,0.95)"
-        src="/images/smile.jpg" :aspect-ratio="16/1"
-        class="bg align-center">
-        <v-col cols="9" class="pt-12 pb-12 margin-auto">
-          <v-sheet class="mx-auto" color="rgba(0,0,0,0)" show-arrows>
-            <v-slide-group v-model="model">
-              <v-slide-item v-for="(dance, index) in dances" :key="index" v-slot="{ active, toggle }">
-                <v-btn class="mx-2" color="red" text :input-value="active" active-class="darken-4" rounded @click="toggle">
-                  {{ dance.title }}
-                </v-btn>
-              </v-slide-item>
-            </v-slide-group>
-          </v-sheet>
-          <v-card class="elevation-0 mt-8" color="rgba(0,0,0,0)">
-            <v-card-text>
-              <v-row>
-                <v-col cols="6" class="black--text font-family-philosopher">
-                  <v-fade-transition mode="in-out">
-                  <div transition="slide-x-transition" v-if="Number.isInteger(model) && model % 2 === 1">
-                    <div class="headline font-weight-bold mb-4">{{ dances[model].title }}</div>
-                    <p>{{ dances[model].description }}</p>
-                    <div class="headline font-weight-bold mb-4">Розклад занять</div>
-                    <p v-for="(schedule, i) in dances[model].time"><strong>{{ schedule.day }}:</strong> {{ schedule.time }}</p>
-                    <v-btn color="red darken-2" class="rounded-pill mt-8" dark>Дізнатись більше</v-btn>
-                  </div>
-                  </v-fade-transition>
-                </v-col>
-                <v-col cols="6" class="black--text font-family-philosopher">
-                  <v-fade-transition mode="in-out">
-                  <div v-if="Number.isInteger(model) && model % 2 === 0">
-                    <div class="headline font-weight-bold mb-4">{{ dances[model].title }}</div>
-                    <p>{{ dances[model].description }}</p>
-                    <div class="headline font-weight-bold mb-4">Розклад занять</div>
-                    <p v-for="(schedule, i) in dances[model].time"><strong>{{ schedule.day }}:</strong> {{ schedule.time }}</p>
-                    <v-btn color="red darken-2" class="rounded-pill mt-8" dark>Дізнатись більше</v-btn>
-                  </div>
-                  </v-fade-transition>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-img>
+
+  <!-- Dance list -->
+  <v-row>
+    <v-img
+      gradient="to top right, rgba(248, 237, 235,0.95), rgba(248, 237, 235,0.95)"
+      src="/images/smile.jpg" :aspect-ratio="16/1"
+      class="bg align-center">
+
+      <!-- Buttons -->
+      <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 9" class="pt-12 pb-12 margin-auto">
+        <v-sheet v-show="!$vuetify.breakpoint.smAndDown" class="mx-auto" color="rgba(0,0,0,0)" show-arrows>
+          <v-slide-group v-model="currentDance">
+            <v-slide-item v-for="(dance, index) in dances" :key="index" v-slot="{ active, toggle }">
+              <v-btn class="mx-2" color="red" text :input-value="active" active-class="darken-4" rounded @click="toggle">
+                {{ dance.title }}
+              </v-btn>
+            </v-slide-item>
+          </v-slide-group>
+        </v-sheet>
+
+        <div class="text-center" v-show="$vuetify.breakpoint.smAndDown">
+          <v-menu offset-y close-on-click rounded>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn class="mx-2" color="red" dark active-class="darken-4" rounded v-bind="attrs" v-on="on">
+                {{ dances[currentDance].title }}
+                <v-icon right>mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item v-for="(dance, index) in dances" :key="index">
+                <v-list-item-title @click="currentDance = index">{{ dance.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
+
+        <!-- Dance information -->
+        <v-card class="elevation-0 mt-8" color="rgba(0,0,0,0)">
+          <v-card-text>
+            <v-row>
+              <v-col
+                :cols="$vuetify.breakpoint.smAndDown ? 12 : 6"
+                class="black--text font-family-philosopher"
+                :class="{ 'offset-sm-6': !$vuetify.breakpoint.smAndDown && currentDance % 2 === 1 }">
+                <v-fade-transition mode="in-out">
+                <div v-show="Number.isInteger(currentDance)">
+                  <div class="headline font-weight-bold mb-4">{{ dances[currentDance].title }}</div>
+                  <p>{{ dances[currentDance].description }}</p>
+                  <div class="headline font-weight-bold mb-4">Розклад занять</div>
+                  <p v-for="(schedule, i) in dances[currentDance].time"><strong>{{ schedule.day }}:</strong> {{ schedule.time }}</p>
+                  <v-btn color="red darken-2" class="rounded-pill mt-8" dark @click="danceDialog = true">Дізнатись більше</v-btn>
+                </div>
+                </v-fade-transition>
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-img>
   </v-row>
-  <v-row class="pt-12 pb-12" justify="center">
-    <v-col cols="8">
+  
+  <!-- Events -->
+  <v-row v-if="events.length" class="pt-12 pb-12" justify="center">
+    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 8">
       <h1 class="red--text text-center text--darken-1 font-family-lobster mb-12">Найближчі події</h1>
       <v-row>
-        <v-col cols="6">
-          <v-card color="rgba(0,0,0,0)" class="elevation-0">
-            <v-img src="/images/children_reading.jpg" contain width="100%" style="border-radius: 8px;"></v-img>
-            <div class="d-flex mt-2 mb-2">
-              <div class="text-center d-flex align-center justify-center flex-column" style="font-size: 80%; min-width: 64px;">
-                <strong style="font-size:220%; line-height: 1;">18</strong>
-                <strong>08.2022</strong>
-              </div>
-              <div div class="flex-grow ml-6">
-                <div class="d-flex justify-space-between" style="position: relative;">
-                  <div class="flex-grow font-weight-bold font-family-philosopher red--text text--darken-3">Психологія успіху (7-9 р.)<br/>Курс ефективного спілкування</div>
-                  <div style="min-width: 64px">
-                  <div class="icon" style="background: rgba(248,237,235,1); padding: 4px; border-radius: 6px; position: absolute; right: 16px; top: -28px; border: rgba(255,181,167,1) 1px solid;">
-                    <v-icon>mdi-human-male-child</v-icon>
-                  </div>
-                  </div>
-                </div>
-                <div class="font-family-philosopher">Вчимось мислити в інтерактивній формі. 5 днів спілкування для впевненості в собі, творчості, йоги та захоплюючих ігор</div>
-              </div>
-            </div>
-          </v-card>
+        <!-- Columns -->
+        <v-col :cols="$vuetify.breakpoint.smAndDown || events.length === 1 ? 12 : 6">
+          <event :events="oddEvents"></event>
         </v-col>
-        <v-col cols="6" class="mt-16">
-          <v-card color="rgba(0,0,0,0)" class="elevation-0">
-            <v-img src="/images/beautiful_girl.jpg" contain width="100%" style="border-radius: 8px;"></v-img>
-            <div class="d-flex mt-2 mb-2">
-              <div class="text-center d-flex align-center justify-center flex-column" style="font-size: 80%; min-width: 64px;">
-                <strong style="font-size:220%; line-height: 1;">16</strong>
-                <strong>06.2022</strong>
-              </div>
-              <div div class="flex-grow ml-6">
-                <div class="d-flex justify-space-between" style="position: relative;">
-                  <div class="flex-grow font-weight-bold font-family-philosopher red--text text--darken-3">Майстер-клас<br/>"Прикраса з бісеру"</div>
-                  <div style="min-width: 64px">
-                  <div class="icon" style="background: rgba(248,237,235,1); padding: 4px; border-radius: 6px; position: absolute; right: 16px; top: -28px; border: rgba(255,181,167,1) 1px solid;">
-                    <v-icon >mdi-dance-ballroom</v-icon>
-                  </div>
-                  </div>
-                </div>
-                <div class="font-family-philosopher">Створи свою неповторну прикрасу. Вчимось плести браслети, кільця, ланцюжки, сережки</div>
-              </div>
-            </div>
-          </v-card>
+        <v-col :cols="$vuetify.breakpoint.smAndDown || events.length === 1 ? 12 : 6" class="mt-12">
+          <event :events="evenEvents"></event>
         </v-col>
+
       </v-row>
     </v-col>
   </v-row>
-  <v-row style="position: relative; top:14px;">
+  <v-row style="position: relative; top:16px;">
     <h1 class="text-center red--text text--darken-1 font-family-lobster margin-auto w-100 mb-0 pt-12" style="background: #EEE">Про нас говорять</h1>
-    <v-carousel cycle style="min-height: 300px;" hide-delimiter-background show-arrows-on-hover>
+    <v-carousel cycle style="min-height: 300px;" hide-delimiter-background show-arrows-on-hover class="pb-4">
       <v-carousel-item interval="10000" v-for="(slide, i) in slides" :key="i">
-        <v-sheet color="#EEE" height="100%">
+        <v-sheet color="#EEE" class=pt-10>
           <v-row class="fill-height text-center" align="center" justify="center">
             <div style="width:60%" class="margin-auto">
               <div><v-img :src="slide.authorImg" :aspect-ratio="1" width="140" class="margin-auto mb-6 rounded-circle"></v-img></div>
-              <div class="font-family-philosopher mb-8" style="font-size: 120%;">{{ slide.text }}</div>
-              <div class="font-family-lobster" style="font-size: 150%"><a target="_blank" :href="slide.url">{{ slide.author }}</a></div>
+              <div class="font-family-philosopher mb-8 fs120">{{ slide.text }}</div>
+              <div class="font-family-lobster pb-16 fs150">
+                <a target="_blank" :href="slide.url">{{ slide.author }}</a>
+              </div>
             </div>
           </v-row>
         </v-sheet>
@@ -156,12 +147,35 @@
     <h1 class="text-center red--text text--darken-1 font-family-lobster margin-auto w-100 mb-4 pt-4" style="position:absolute; z-index: 1999; top: 0px;">Завітай вже сьогодні</h1>
     <div id="map" style="width: 100%; height: 75vh;"></div>
   </v-row>
+
+  <v-dialog v-if="dances && dances.length && Number.isInteger(currentDance)" v-model="danceDialog" width="500" style="z-index: 3010;">
+    <v-card>
+      <v-card-title class="grey fs120 lighten-2 text--darken-2 red--text font-family-lobster">{{ dances[currentDance].title }}</v-card-title>
+      <v-img :src="dances[currentDance].image" :aspect-ratio="16/9" style="width: 100%;" class="mb-4"></v-img>
+      <v-card-text class="font-family-philosopher">
+        <vue-markdown>{{ dances[currentDance].fullText }}</vue-markdown>
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="grey darken-2" class="rounded-pill" text @click="danceDialog = false">
+          Закрити
+        </v-btn>
+        <v-btn color="red darken-2" class="rounded-pill" dark @click="danceDialog = false">Записатися!</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
   </div>
 </template>
 
 <script>
+import VueMarkdown from '@adapttive/vue-markdown'
+ 
 export default {
   name: 'IndexPage',
+  components: {
+    VueMarkdown
+  },
   mounted () {
     const map = L.map('map', {
       gestureHandling: true,
@@ -190,11 +204,34 @@ export default {
 
     marker.bindPopup(`
       <img style="width:100%;" src="/images/fedyncia.jpg">
-      <b>Танцювальний клуб "Родем",</b><br/>вулиця О. Фединця 43,<br/>Ужгород`).openPopup()
+      <b>Танцювальний клуб "Родем",</b><br/>вулиця О. Фединця 43,<br/>Ужгород`)
+
+    if (window.innerHeight > 500) marker.openPopup()
+
+  },
+  computed: {
+    changeHeader () {
+      return this.windowWidth >= 1440
+    },
+    oddEvents () {
+      return this.events.filter((el, index) => index % 2 === 0)
+    },
+    evenEvents () {
+      return this.events.filter((el, index) => index % 2 === 1)
+    }
+  },
+  methods: {
+    onResize () {
+      this.windowWidth = window.innerWidth
+    }
   },
   data () {
     return {
-      model: null,
+      danceDialog: false,
+      eventDialog: false,
+      currentDance: 0,
+      windowWidth: 1440,
+      currentEvent: {},
       icons: [
       ],
       slides: [
@@ -220,7 +257,9 @@ export default {
       dances: [
         {
           title: 'Для дітей',
+          image: '/images/another_activities.jpg',
           description: 'Рух - це життя, наш рух-це танець! Танцювальний клуб  RODEM запрошує на групові заняття дітей та підлітків.',
+          fullText: 'Рух - це життя, наш рух-це танець! Танцювальний клуб  RODEM запрошує на групові заняття дітей та підлітків.',
           time: [
             { day: 'Понеділок', time: 'з 16:30 (8-11 років)' },
             { day: 'Вівторок', time: 'з 16:00 (12-16 років)' },
@@ -230,7 +269,9 @@ export default {
         },
         {
           title: 'Контемп',
+          image: '/images/another_activities.jpg',
           description: 'Головне в контемпі - це задоволення від танцю та імпровізації, ваша свобода самовираження та індивідуальність. Контемпорарі –  різновид сучасного танцю, що поєднує західні і східні методики (класичний танець, джаз модерн, цигун, йога).',
+          fullText: 'Головне в контемпі - це задоволення від танцю та імпровізації, ваша свобода самовираження та індивідуальність. Контемпорарі –  різновид сучасного танцю, що поєднує західні і східні методики (класичний танець, джаз модерн, цигун, йога).',
           time: [
             { day: 'Вівторок', time: 'з 18:30 до 20:00' },
             { day: 'Четвер', time: 'з 18:30 до 20:00' },            
@@ -239,7 +280,9 @@ export default {
         },
         {
           title: 'Танго',
+          image: '/images/another_activities.jpg',
           description: 'Аргентинське танго - це друге дихання ділового міста, його пристрасть і загадкова душа втілена в танці. Танго проникає всередину й досягає сердець тих, хто споглядає за танцівниками, завдяки тим почуттям, які вони вкладають у танець.',
+          fullText: 'Аргентинське танго - це друге дихання ділового міста, його пристрасть і загадкова душа втілена в танці. Танго проникає всередину й досягає сердець тих, хто споглядає за танцівниками, завдяки тим почуттям, які вони вкладають у танець.',
           time: [
             { day: 'Понеділок', time: 'з 18:30 до 20:00' },
             { day: 'Середа', time: 'з 18:30 до 20:00' },
@@ -248,13 +291,45 @@ export default {
         },
         {
           title: 'Бачата',
+          image: '/images/another_activities.jpg',
           description: 'Бачата - дивовижний і неповторний латиноамериканський танець. Еротичність, романтичність, показ почуттів і максимальна близькість партнерів - це ті характерні риси, завдяки яким бачата завоювала серця мільйонів. ',
+          fullText: 'Бачата - дивовижний і неповторний латиноамериканський танець. Еротичність, романтичність, показ почуттів і максимальна близькість партнерів - це ті характерні риси, завдяки яким бачата завоювала серця мільйонів. ',
           time: [
             { day: 'Понеділок', time: 'з 18:30 до 20:00' },
             { day: 'Середа', time: 'з 18:30 до 20:00' },
           ],
           fullDescription: bachata
         },
+      ],
+      events: [
+        {
+          date: new Date('2022-08-22'),
+          title: 'Курс ефективного спілкування "Психологія успіху" (7-9 років)',
+          description: 'Вчимось мислити в інтерактивній формі. 5 днів спілкування, творчості, йоги та захоплюючих ігор',
+          fullText: uspikh,
+          image: '/images/children_reading.jpg'
+        },
+        {
+          date: new Date('2022-06-16'),
+          title: 'Майстер-клас "Прикраса з бісеру"',
+          description: 'Створи свою неповторну прикрасу. Вчимось плести браслети, кільця, ланцюжки, сережки',
+          fullText: biser,
+          image: '/images/biser.jpg'
+        },
+        {
+          date: new Date('2022-05-11'),
+          title: 'Майстер-клас "Солодкий букет"',
+          description: 'Хто бажає навчитись робити квіти власними руками? І зробити подарунок рідним до Міжнародного дня сім\'ї?',
+          fullText: 'Хто бажає навчитись робити квіти власними руками? І зробити подарунок рідним до Міжнародного дня сім\'ї?',
+          image: '/images/bouquet.jpg'
+        },
+        {
+          date: new Date('2022-04-20'),
+          title: 'Майстер-клас "Велика писанка"',
+          description: 'Розпис писанок в теплій сімейній атмосфері клубу RODEM',
+          fullText: 'Хто бажає навчитись робити квіти власними руками? І зробити подарунок рідним до Міжнародного дня сім\'ї?',
+          image: '/images/pysanka.jpg'
+        }
       ]
     }
   }
@@ -288,48 +363,86 @@ const fiesta = `
 
 const bachata = `Бачата - дивовижний і неповторний латиноамериканський танець. Еротичність, романтичність, показ почуттів і максимальна близькість партнерів - це ті характерні риси, завдяки яким бачата завоювала серця мільйонів. Пориньте і Ви в океан почуттів і романтики і почніть вчитися танцювати цей дивовижний танець!
 `
-</script>
-<style>
-.custom-header .v-parallax__content {
-  background: linear-gradient(0deg, rgba(0,0,0,0.83) 20%, rgba(0,0,0,0.3) 100%);
-}
+const biser = `
+Бісероплетіння належить до декоративного мистецтва, яке має багатовікову історію.
 
+Бісером прикрашають одяг і вишивають картини, плетуть прикраси та аксесуари. 
+
+Це хобі, яке приносить задоволення та заспокоює, розвиває уяву та уважність.
+
+На мастер-класі ми вчимось розуміти і плести по схемам, що завжди стане в нагоді.
+
+Запрошуємо в групу, кожного четверга о 14:30 до клубу РОДЕМ, м. Ужгород
+`
+
+const uspikh = `
+Інтерактивна розвиваюча програма, саме те, що потрібно дитині цього літа!
+
+Спілкування і пізнання себе!  
+
+Займаємось по методиці відомого психолога Оскара Бреніф’є "Мистецтво мислити, задавати питання і вести діалог"
+
+Вік учасників: 7-9 років,  10-15 років
+
+Дати: 
+
+* 11-15 липня 2022
+* 18-22 липня 2022
+* 25-29 липня 2022
+
+Що будемо робити:
+
+* виведемо свою формулу успішного спілкування;
+* надихнемось власними мріями і новими знайомствами;
+* поговоримо на теми впевненості і самопрезентації;
+* будемо виражати свої емоції через рух, і танець;
+* навчимось знаходити спільну мову з батьками, друзями, однолітками  і вести діалог;
+* створимо свою карту бажань.
+
+Програма курсу включає:
+
+* теорія з психології 
+* творчі завдання 
+* імітаційні ігри
+* йога 
+* командні вправи
+* смачні  перекуси 
+
+Телефонуйте для бронювання місць і детальної інформації: <a href="tel:+380663957382">066 395 73 82</a>
+
+Кожен учасник отримає роздаткові матеріали, робочий зошит та сертифікат.
+
+За результатами курсу батьки отримають зворотній зв’язок. 
+
+Ведучі курсу:
+
+**Мар'яна Плакош** - сімейний та дитячий психолог, з практичним досвідом роботи 11 років. Власниця психологічної студії «INSIDE».
+
+**Вікторія Іваницька** - керівник і хореограф клубу «RODEM», 9 років навчаємо і захоплює танцями дітей та дорослих нашого міста Ужгород.
+`
+
+const pysanka = `
+Розпис писанок в теплій сімейній атмосфері клубу RODEM
+
+Власна писанка, декорована символами миру, здоров’я, родинного щастя, достаткуй -це чудовий оберіг, подарунок, що залишиться вам на згадку.
+ `
+
+</script>
+
+<style>
 .bg {
   background-color: #4158D0;
   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 30%, #FFCC70 66%, #ffffff 100%);
 }
-/*
-.custom-header .v-parallax__content {
-  background: linear-gradient(0deg, rgba(255,181,167,0.83) 0%, rgba(255,181,167,0.3) 100%);
-}
-*
-/*
-  background: linear-gradient(90deg, rgba(255,181,167,0.3) 0%, rgba(109,104,117,0.53) 35%, rgba(255,181,167,0.3) 100%);
- 248,237,235,0.33
-  background: radial-gradient(circle, rgba(248,237,235,0.33) 0%, rgba(255,181,167,0.9) 100%);
-
-*/
-.v-parallax__image {
-}
-
 .vh100 {
   height: 100vh;
 }
 .font-family-lobster {
-  font-family: 'Lobster', 'Arial', sans-serif;
+  font-family: 'Lobster', 'Arial', sans-serif !important;
 }
 .font-family-philosopher {
   font-family: 'Philosopher', 'Arial', sans-serif;  
 }
-
-hr {
-  border: 0;
-  margin: 1.35em auto;
-  max-width: 100%;
-  background-position: 50%;
-  box-sizing: border-box;
-}
-
 .fade {
   height: 1px;
   color: red;
@@ -340,15 +453,89 @@ hr {
     rgba($color, 1) 50%,
     rgba($color, 0) 100%);
 }
-
-.fil0 { fill:#FB0200 }
-
 .v-slide-group__content {
   justify-content: space-around;
 }
-
 .margin-auto {
   margin: auto !important;
 }
+.hero-image {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.main-logo {
+  margin: auto;
+  margin-bottom: 10%;
+  opacity:0.6;
+}
+.hero-text {
+  z-index: 1000;
+  position: absolute;
+  bottom:0;
+  width: 100%;
+}
+.fs150 {
+  font-size: 150%;
+}
+.fs135 {
+  font-size: 135%;
+}
+.fs120 {
+  font-size: 120%;
+}
+.event-image {
+  border-radius: 8px;
+}
+.event-date {
+  font-size: 80%;
+  min-width: 64px;
+}
+.event-day {
+  font-size:220%;
+  line-height: 1;
+}
+.rel {
+  position: relative;
+}
+.event-icon {
+  background: rgba(248,237,235,1);
+  padding: 4px;
+  border-radius: 6px;
+  position: absolute;
+  right: 16px;
+  top: -28px;
+  border: rgba(255,181,167,1) 1px solid;
+}
+.v-carousel, .v-carousel__item {
+  height: auto !important;
+}
+.v-carousel__controls {
+  margin-bottom: 10px;
+}
+.v-dialog .v-card__title {
+  background: radial-gradient(circle, rgba(248,237,235,1) 0%, rgba(255,181,167,1) 100%);
+}
+.v-overlay {
+  z-index: 2003 !important;
+}
+.v-dialog {
+  z-index: 2004 !important;
+}
 
+.v-dialog::-webkit-scrollbar {
+  width: 6px;
+}
+
+.v-dialog::-webkit-scrollbar-track {
+  background: #CCC;
+}
+
+.v-dialog::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 20px;
+}
+.v-card__text ul {
+  margin-bottom: 30px;
+}
 </style>
