@@ -41,7 +41,7 @@
   </v-row>
 
   <!-- About -->
-  <v-row class="text-center pt-12 pb-12" justify="center">
+  <v-row class="text-center pt-12 pb-12" justify="center" id="about" rel="about">
     <v-col cols="9">
       <h1 class="red--text text--darken-1 font-family-lobster mb-8">Про клуб</h1>
       <p class="font-family-philosopher mb-12 fs120">Якщо вам періодично спадає на думку де можна записатися на танці в Ужгороді то ви звернулися за вірною адресою. Приєднуйтеся до нашої школи танців і отримаєте відпочинок від домашніх турбот та робочої рутини. Ви станете центром уваги будь-якої вечірки, затребуваним партнером для танців. Отримайте масу приємних емоцій. Створіть собі красиве тіло.</p>
@@ -50,7 +50,7 @@
   </v-row>
 
   <!-- Dance list -->
-  <v-row>
+  <v-row id="danceList" rel="danceList">
     <v-img
       gradient="to top right, rgba(248, 237, 235,0.95), rgba(248, 237, 235,0.95)"
       src="/images/smile.jpg" :aspect-ratio="16/1"
@@ -110,7 +110,7 @@
   </v-row>
   
   <!-- Events -->
-  <v-row v-if="events.length" class="pt-12 pb-12" justify="center">
+  <v-row v-if="events.length" class="pt-16" justify="center"  id="eventsList" rel="eventsList">
     <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 8">
       <h1 class="red--text text-center text--darken-1 font-family-lobster mb-12">Найближчі події</h1>
       <v-row>
@@ -125,7 +125,9 @@
       </v-row>
     </v-col>
   </v-row>
-  <v-row style="position: relative; top:16px;">
+
+  <!-- Reviews -->
+  <v-row style="position: relative; top:16px;" id="reviews" rel="reviews" class="pt-12">
     <h1 class="text-center red--text text--darken-1 font-family-lobster margin-auto w-100 mb-0 pt-12" style="background: #EEE">Про нас говорять</h1>
     <v-carousel cycle style="min-height: 300px;" hide-delimiter-background show-arrows-on-hover class="pb-4">
       <v-carousel-item interval="10000" v-for="(slide, i) in slides" :key="i">
@@ -143,7 +145,9 @@
       </v-carousel-item>
     </v-carousel>
   </v-row>
-  <v-row style="position: relative;">
+
+  <!-- Contacts -->
+  <v-row style="position: relative;"  id="contacts" rel="contacts">
     <h1 class="text-center red--text text--darken-1 font-family-lobster margin-auto w-100 mb-4 pt-4" style="position:absolute; z-index: 1999; top: 0px;">Завітай вже сьогодні</h1>
     <div id="map" style="width: 100%; height: 75vh;"></div>
   </v-row>

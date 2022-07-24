@@ -1,19 +1,31 @@
 <template>
   <v-app>
     <v-app-bar inverted-scroll :scroll-threshold="vh" fixed app elevate-on-scroll :hide-on-scroll="false" class="main-bar">
-        <v-spacer />
-        <v-spacer />
-        <v-btn color="red darken-2" text>Про клуб</v-btn>
-        <v-spacer />
-        <v-btn color="red darken-2" text>Заходи</v-btn>
-        <v-spacer />
-        <v-img contain height="50" width="180" src="/rodem.svg"></v-img>
-        <v-spacer />
-        <v-btn color="red darken-2" text>Відгуки</v-btn>
-        <v-spacer />
-        <v-btn color="red darken-2" text>Контакти</v-btn>
-        <v-spacer />
-        <v-spacer />
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-btn v-show="$vuetify.breakpoint.mdAndUp" color="red darken-2" @click="goTo(0)" text>Про клуб</v-btn>
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-btn v-show="$vuetify.breakpoint.mdAndUp" color="red darken-2" @click="goTo('eventsList')" text>Заходи</v-btn>
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-img contain height="50" @click="goTo(0)" src="/rodem.svg" style="max-width: 85px;"></v-img>
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-btn v-show="$vuetify.breakpoint.mdAndUp" color="red darken-2" @click="goTo('reviews')" text>Відгуки</v-btn>
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-btn v-show="$vuetify.breakpoint.mdAndUp" color="red darken-2" @click="goTo('contacts')" text>Контакти</v-btn>
+      <v-spacer v-show="$vuetify.breakpoint.mdAndUp" />
+      <v-spacer />
+      <v-menu offset-y close-on-click rounded>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-menu</v-icon>
+          </v-btn>
+        </template>
+        <v-list class="top-list">
+          <v-list-item v-for="(link, index) in menu" :key="'link-' + index" @click="goTo(link.selector)">
+            <v-list-item-title>{{ link.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -82,12 +94,24 @@ export default {
       this.vh = window.innerHeight
     }
   },
+  methods: {
+    goTo (val) {
+      if (val === 0) return this.$vuetify.goTo(0, { easing: 'easeInOutCubic', duration: 300, offset: 0 })
+      this.$vuetify.goTo('#' + val, { easing: 'easeInOutCubic', duration: 300, offset: val === 'contacts' ? 64 : 0 })
+    }
+  },
   data () {
     return {
       vh: 0,
       items: [
       ],
       icons: [
+      ],
+      menu: [
+        { selector: 'about', title: 'Про клуб' },
+        { selector: 'eventsList', title: 'Заходи' },
+        { selector: 'reviews', title: 'Відгуки' },
+        { selector: 'contacts', title: 'Контакти' }
       ]
     }
   }
@@ -112,4 +136,5 @@ export default {
   color: white !important;
   font-size: 120%;
 }
+
 </style>
