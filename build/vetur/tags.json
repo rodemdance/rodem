@@ -1,5 +1,8 @@
 {
   "Event": {
     "description": "Auto imported from components/Event.vue"
+  },
+  "RodemLogo": {
+    "description": "Auto imported from components/RodemLogo.vue"
   }
 }
