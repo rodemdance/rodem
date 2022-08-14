@@ -5,7 +5,7 @@
       :key="'event-' + index"
       color="rgba(0,0,0,0)"
       class="elevation-0 event-card mb-8">
-      <v-img :src="event.image" contain width="100%" class="event-image">
+      <v-img @dragover.stop.prevent @drop.stop.prevent="dropHandler($event, event.index, event.title)" :src="event.image" width="100%" class="event-image">
         <v-btn
           @click="remove(event.index)"
           v-show="loggedIn"
@@ -74,7 +74,7 @@
           :contenteditable="loggedIn">
           {{ currentEvent.title }}
         </v-card-title>
-        <v-img :src="currentEvent.image" :aspect-ratio="16/9" style="width: 100%;" class="mb-4"></v-img>
+        <v-img @dragover.stop.prevent @drop.stop.prevent="dropHandler($event, currentEvent.index, currentEvent.title)" :src="currentEvent.image" :aspect-ratio="16/9" style="width: 100%;" class="mb-4"></v-img>
         <v-card-text class="font-family-philosopher">
           <vue-markdown :key="eventKey" v-show="!loggedIn">{{ currentEvent.fullText }}</vue-markdown>
           <pre style="white-space: break-spaces;" class="font-family-philosopher" @blur="update(currentEvent.index, 'fullText', $event.target.innerText)" :contenteditable="loggedIn" v-show="loggedIn">{{ currentEvent.fullText }}</pre>
@@ -146,6 +146,9 @@ export default {
     selectEvent (val) {
       this.$set(this, 'currentEvent', val)
       this.eventDialog = true
+    },
+    dropHandler(e, index, name) {
+      this.$emit('updateimage', { e, index, name })
     }
   },
   watch: {
